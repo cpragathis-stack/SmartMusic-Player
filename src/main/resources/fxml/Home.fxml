@@ -1,0 +1,236 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.ScrollPane?>
+
+<BorderPane
+        xmlns:fx="http://javafx.com/fxml"
+        fx:controller="com.musicplayer.dashboard.HomeController"
+        prefWidth="1100"
+        prefHeight="700"
+        stylesheets="@../css/style.css"
+        style="-fx-background-color: #EBF5FB;">
+
+    <top>
+        <HBox
+                prefHeight="60"
+                alignment="CENTER_LEFT"
+                spacing="20"
+                style="-fx-background-color: #2E86C1; -fx-padding: 0 20;">
+
+            <Label
+                    text="SmartBeats - Intelligent Music Player with Smart Recommendation System"
+                    style="-fx-font-size: 16px; -fx-font-weight: bold; -fx-text-fill: white;"/>
+
+            <Pane HBox.hgrow="ALWAYS"/>
+
+            <Label
+                    fx:id="welcomeLabel"
+                    text="Welcome!"
+                    style="-fx-text-fill: white; -fx-font-size: 13px;"/>
+
+            <Button
+                    text="Logout"
+                    onAction="#handleLogout"
+                    style="-fx-background-color: #E74C3C; -fx-text-fill: white; -fx-font-weight: bold; -fx-background-radius: 6; -fx-cursor: hand; -fx-padding: 8 15;"/>
+        </HBox>
+    </top>
+
+    <left>
+        <VBox
+                prefWidth="210"
+                spacing="4"
+                style="-fx-background-color: white; -fx-padding: 20; -fx-border-color: #D6EAF8; -fx-border-width: 0 1 0 0;">
+
+            <Label
+                    text="MENU"
+                    style="-fx-font-size: 11px; -fx-font-weight: bold; -fx-text-fill: #85C1E9; -fx-padding: 0 0 8 10;"/>
+
+            <Button
+                    text="Home"
+                    prefWidth="175"
+                    prefHeight="42"
+                    style="-fx-background-color: #2E86C1; -fx-text-fill: white; -fx-font-size: 13px; -fx-background-radius: 8; -fx-cursor: hand; -fx-alignment: CENTER_LEFT; -fx-padding: 0 0 0 15;"/>
+
+            <Button
+                    text="Music Library"
+                    prefWidth="175"
+                    prefHeight="42"
+                    onAction="#openLibrary"
+                    style="-fx-background-color: transparent; -fx-text-fill: #1A5276; -fx-font-size: 13px; -fx-cursor: hand; -fx-alignment: CENTER_LEFT; -fx-padding: 0 0 0 15; -fx-border-color: transparent;"/>
+
+            <Button
+                    text="▶  Now Playing"
+                    prefWidth="175"
+                    prefHeight="42"
+                    onAction="#openPlayer"
+                    style="-fx-background-color: transparent; -fx-text-fill: #1A5276; -fx-font-size: 13px; -fx-cursor: hand; -fx-alignment: CENTER_LEFT; -fx-padding: 0 0 0 15; -fx-border-color: transparent;"/>
+
+            <Button
+                    text="Playlists"
+                    prefWidth="175"
+                    prefHeight="42"
+                    onAction="#openPlaylist"
+                    style="-fx-background-color: transparent; -fx-text-fill: #1A5276; -fx-font-size: 13px; -fx-cursor: hand; -fx-alignment: CENTER_LEFT; -fx-padding: 0 0 0 15; -fx-border-color: transparent;"/>
+
+            <Button
+                    text="Favorites"
+                    prefWidth="175"
+                    prefHeight="42"
+                    onAction="#openFavorites"
+                    style="-fx-background-color: transparent; -fx-text-fill: #1A5276; -fx-font-size: 13px; -fx-cursor: hand; -fx-alignment: CENTER_LEFT; -fx-padding: 0 0 0 15; -fx-border-color: transparent;"/>
+
+            <Button
+                    text="Dashboard"
+                    prefWidth="175"
+                    prefHeight="42"
+                    onAction="#openDashboard"
+                    style="-fx-background-color: transparent; -fx-text-fill: #1A5276; -fx-font-size: 13px; -fx-cursor: hand; -fx-alignment: CENTER_LEFT; -fx-padding: 0 0 0 15; -fx-border-color: transparent;"/>
+
+            <Button
+                    text="Recommendations"
+                    prefWidth="175"
+                    prefHeight="42"
+                    onAction="#openRecommendations"
+                    style="-fx-background-color: transparent; -fx-text-fill: #1A5276; -fx-font-size: 13px; -fx-cursor: hand; -fx-alignment: CENTER_LEFT; -fx-padding: 0 0 0 15; -fx-border-color: transparent;"/>
+
+            <Button
+                    text="History"
+                    prefWidth="175"
+                    prefHeight="42"
+                    onAction="#openHistory"
+                    style="-fx-background-color: transparent; -fx-text-fill: #1A5276; -fx-font-size: 13px; -fx-cursor: hand; -fx-alignment: CENTER_LEFT; -fx-padding: 0 0 0 15; -fx-border-color: transparent;"/>
+
+        </VBox>
+    </left>
+
+    <center>
+        <ScrollPane fitToWidth="true"
+                    style="-fx-background-color: #EBF5FB; -fx-background: #EBF5FB; -fx-border-color: transparent;">
+        <VBox
+                alignment="CENTER"
+                spacing="30"
+                style="-fx-padding: 40;">
+
+            <Label
+                    text="SmartBeats"
+                    style="-fx-font-size: 32px; -fx-font-weight: bold; -fx-text-fill: #1A5276;"/>
+
+            <Label
+                    text="Intelligent Music Library &amp; Recommendation System"
+                    style="-fx-font-size: 14px; -fx-text-fill: #2E86C1;"/>
+
+            <Label
+                    text="Manages 200-500 songs with scanning, history tracking, and smart recommendations"
+                    wrapText="true"
+                    maxWidth="720"
+                    alignment="CENTER"
+                    style="-fx-font-size: 13px; -fx-text-fill: #5D6D7E; -fx-text-alignment: center;"/>
+
+            <HBox spacing="20" alignment="CENTER">
+
+                <VBox
+                        alignment="CENTER"
+                        spacing="8"
+                        prefWidth="160"
+                        prefHeight="110"
+                        style="-fx-background-color: white; -fx-background-radius: 14; -fx-padding: 20;">
+                    <Label text="" style="-fx-font-size: 28px;"/>
+                    <Label text="Total Songs" style="-fx-font-size: 12px; -fx-text-fill: #85C1E9;"/>
+                    <Label
+                            fx:id="songCountLabel"
+                            text="0"
+                            style="-fx-font-size: 24px; -fx-font-weight: bold; -fx-text-fill: #2E86C1;"/>
+                </VBox>
+
+                <VBox
+                        alignment="CENTER"
+                        spacing="8"
+                        prefWidth="160"
+                        prefHeight="110"
+                        style="-fx-background-color: white; -fx-background-radius: 14; -fx-padding: 20;">
+                    <Label text="" style="-fx-font-size: 28px;"/>
+                    <Label text="Playlists" style="-fx-font-size: 12px; -fx-text-fill: #85C1E9;"/>
+                    <Label
+                            fx:id="playlistCountLabel"
+                            text="0"
+                            style="-fx-font-size: 24px; -fx-font-weight: bold; -fx-text-fill: #1ABC9C;"/>
+                </VBox>
+
+                <VBox
+                        alignment="CENTER"
+                        spacing="8"
+                        prefWidth="160"
+                        prefHeight="110"
+                        style="-fx-background-color: white; -fx-background-radius: 14; -fx-padding: 20;">
+                    <Label text="" style="-fx-font-size: 28px;"/>
+                    <Label text="Favorites" style="-fx-font-size: 12px; -fx-text-fill: #85C1E9;"/>
+                    <Label
+                            fx:id="favoriteCountLabel"
+                            text="0"
+                            style="-fx-font-size: 24px; -fx-font-weight: bold; -fx-text-fill: #E74C3C;"/>
+                </VBox>
+
+                <VBox
+                        alignment="CENTER"
+                        spacing="8"
+                        prefWidth="160"
+                        prefHeight="110"
+                        style="-fx-background-color: white; -fx-background-radius: 14; -fx-padding: 20;">
+                    <Label text="▶" style="-fx-font-size: 28px;"/>
+                    <Label text="Songs Played" style="-fx-font-size: 12px; -fx-text-fill: #85C1E9;"/>
+                    <Label
+                            fx:id="playedCountLabel"
+                            text="0"
+                            style="-fx-font-size: 24px; -fx-font-weight: bold; -fx-text-fill: #E67E22;"/>
+                </VBox>
+
+            </HBox>
+
+            <VBox spacing="10" maxWidth="720" prefWidth="720">
+                <Label text="Browse by Language" style="-fx-font-size: 16px; -fx-font-weight: bold; -fx-text-fill: #1A5276;"/>
+                <HBox spacing="10" alignment="CENTER_LEFT">
+                    <Button text="All" onAction="#showAllLanguages" styleClass="btn-secondary"/>
+                    <Button text="Tamil" onAction="#showTamilSongs" styleClass="btn-secondary"/>
+                    <Button text="Hindi" onAction="#showHindiSongs" styleClass="btn-secondary"/>
+                    <Button text="English" onAction="#showEnglishSongs" styleClass="btn-secondary"/>
+                </HBox>
+                <ListView fx:id="languageSongList" prefHeight="180" fixedCellSize="70"
+                          styleClass="song-list"/>
+            </VBox>
+
+            <HBox spacing="15" alignment="CENTER">
+
+                <Button
+                        text=" Browse Library"
+                        prefWidth="190"
+                        prefHeight="46"
+                        onAction="#openLibrary"
+                        style="-fx-background-color: #2E86C1; -fx-text-fill: white; -fx-font-size: 13px; -fx-font-weight: bold; -fx-background-radius: 10; -fx-cursor: hand;"/>
+
+                <Button
+                        text=" Recommendations"
+                        prefWidth="200"
+                        prefHeight="46"
+                        onAction="#openRecommendations"
+                        style="-fx-background-color: #1ABC9C; -fx-text-fill: white; -fx-font-size: 13px; -fx-font-weight: bold; -fx-background-radius: 10; -fx-cursor: hand;"/>
+
+                <Button
+                        text=" Dashboard"
+                        prefWidth="180"
+                        prefHeight="46"
+                        onAction="#openDashboard"
+                        style="-fx-background-color: #E67E22; -fx-text-fill: white; -fx-font-size: 13px; -fx-font-weight: bold; -fx-background-radius: 10; -fx-cursor: hand;"/>
+
+            </HBox>
+
+        </VBox>
+        </ScrollPane>
+    </center>
+
+</BorderPane>

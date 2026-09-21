@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.geometry.*?>
+
+<VBox xmlns:fx="http://javafx.com/fxml"
+      fx:controller="com.musicplayer.auth.LoginController"
+      alignment="CENTER"
+      prefWidth="780" prefHeight="620"
+      stylesheets="@../css/style_spotify.css"
+      style="-fx-background-color: #F8FAFC; -fx-padding: 30;">
+
+    <!-- APP LOGIN CARD -->
+    <VBox alignment="CENTER" spacing="20" prefWidth="420" maxWidth="420"
+          style="-fx-background-color: #FFFFFF; -fx-padding: 40 36; -fx-background-radius: 16px; -fx-border-color: #E2E8F0; -fx-border-radius: 16px; -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.06), 20, 0, 0, 8);">
+
+        <!-- App Brand Logo & Name -->
+        <StackPane prefWidth="64" prefHeight="64" maxWidth="64" maxHeight="64"
+                   style="-fx-background-color: linear-gradient(to bottom right, #4F46E5, #EC4899); -fx-background-radius: 32px; -fx-effect: dropshadow(gaussian, rgba(79, 70, 229, 0.25), 15, 0, 0, 4);">
+            <Label text="" style="-fx-font-size: 30px; -fx-text-fill: #FFFFFF;"/>
+        </StackPane>
+
+        <VBox spacing="4" alignment="CENTER">
+            <Label text="SmartBeats - Offline Login" style="-fx-font-size: 28px; -fx-font-weight: 900; -fx-text-fill: #0F172A; -fx-letter-spacing: -0.5px;"/>
+            <Label text="Your username stays on this computer. No internet is required." style="-fx-font-size: 13px; -fx-text-fill: #64748B;"/>
+        </VBox>
+
+        <!-- Form Fields -->
+        <VBox spacing="14" prefWidth="350">
+            <!-- Username -->
+            <VBox spacing="6">
+                <Label text="Username" style="-fx-font-size: 12px; -fx-font-weight: bold; -fx-text-fill: #334155;"/>
+                <TextField fx:id="usernameField" promptText="Enter a username" prefHeight="44" styleClass="auth-input"/>
+            </VBox>
+        </VBox>
+
+        <!-- Status Label -->
+        <Label fx:id="errorLabel" text="" style="-fx-font-size: 12px; -fx-text-fill: #EF4444;"/>
+
+        <!-- Action Buttons -->
+        <VBox spacing="10" prefWidth="350">
+            <Button text="Login" prefWidth="350" prefHeight="46" onAction="#handleLogin" styleClass="btn-primary-gradient"/>
+            <Button text="Continue as Guest / Offline Mode" prefWidth="350" prefHeight="40" onAction="#handleGuestLogin" styleClass="btn-secondary"/>
+        </VBox>
+
+    </VBox>
+
+</VBox>

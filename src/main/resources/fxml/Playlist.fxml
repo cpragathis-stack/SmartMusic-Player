@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.geometry.*?>
+
+<VBox xmlns:fx="http://javafx.com/fxml"
+      fx:controller="com.musicplayer.playlist.PlaylistController"
+      stylesheets="@../css/style_spotify.css"
+      style="-fx-background-color: #EBF4FC; -fx-padding: 24;"
+      spacing="18">
+
+    <!-- Top Header Bar -->
+    <HBox alignment="CENTER_LEFT" spacing="15">
+        <VBox spacing="2">
+            <Label text="Custom Playlists"
+                   style="-fx-font-size: 24px; -fx-font-weight: 900; -fx-text-fill: #0F172A;"/>
+            <Label text="Create and organize your favorite songs into customized playlists."
+                   style="-fx-font-size: 12px; -fx-text-fill: #64748B;"/>
+        </VBox>
+        <Pane HBox.hgrow="ALWAYS"/>
+        <Button text=" Home" onAction="#goHome"
+                style="-fx-background-color: #0284C7; -fx-text-fill: white; -fx-font-weight: bold;
+                -fx-background-radius: 8; -fx-cursor: hand; -fx-padding: 8 16;"/>
+    </HBox>
+
+    <!-- Create Playlist Controls -->
+    <HBox spacing="12" alignment="CENTER_LEFT">
+        <TextField fx:id="newPlaylistName" promptText="Enter new playlist name"
+                   prefWidth="320" prefHeight="40"
+                   styleClass="search-input-pill"/>
+        <Button text=" Create Playlist" onAction="#createPlaylist" prefHeight="40"
+                style="-fx-background-color: #0284C7; -fx-text-fill: white; -fx-font-weight: bold;
+                -fx-background-radius: 500px; -fx-cursor: hand; -fx-padding: 8 18;"/>
+        <Button text=" Add Track to Playlist" onAction="#showAddSong" prefHeight="40"
+                style="-fx-background-color: #0EA5E9; -fx-text-fill: white; -fx-font-weight: bold;
+                -fx-background-radius: 500px; -fx-cursor: hand; -fx-padding: 8 18;"/>
+        <Button text=" Delete Selected" onAction="#deletePlaylist" prefHeight="40"
+                style="-fx-background-color: #EF4444; -fx-text-fill: white; -fx-font-weight: bold;
+                -fx-background-radius: 500px; -fx-cursor: hand; -fx-padding: 8 18;"/>
+    </HBox>
+
+    <!-- Content Split: Playlists List (Left) and Songs in Playlist (Right) -->
+    <HBox spacing="18" VBox.vgrow="ALWAYS">
+        <!-- Left: Playlists List -->
+        <VBox prefWidth="260" spacing="10"
+              style="-fx-background-color: #0F172A; -fx-background-radius: 14; -fx-padding: 16; -fx-border-color: #1E293B; -fx-border-radius: 14;">
+            <Label text="YOUR PLAYLISTS" style="-fx-text-fill: #38BDF8; -fx-font-weight: bold; -fx-font-size: 12px;"/>
+            <ListView fx:id="playlistView" VBox.vgrow="ALWAYS" onMouseClicked="#loadPlaylistSongs"
+                      style="-fx-background-color: transparent; -fx-border-color: transparent;"/>
+        </VBox>
+
+        <!-- Right: Songs Table in Selected Playlist -->
+        <VBox HBox.hgrow="ALWAYS" spacing="10">
+            <Label fx:id="playlistTitle" text="Select a Playlist"
+                   style="-fx-font-size: 18px; -fx-font-weight: 800; -fx-text-fill: #0F172A;"/>
+
+            <TableView fx:id="songTable" VBox.vgrow="ALWAYS" styleClass="table-view">
+                <columns>
+                    <TableColumn fx:id="colName" text="Song Name" prefWidth="260"/>
+                    <TableColumn fx:id="colArtist" text="Artist" prefWidth="180"/>
+                    <TableColumn fx:id="colGenre" text="Genre" prefWidth="120"/>
+                    <TableColumn fx:id="colPlay" text="Action" prefWidth="100"/>
+                </columns>
+            </TableView>
+        </VBox>
+    </HBox>
+
+    <!-- Status Message -->
+    <Label fx:id="statusLabel" text="Select a playlist to view tracks."
+           style="-fx-text-fill: #0369A1; -fx-font-weight: bold; -fx-font-size: 12px;"/>
+</VBox>

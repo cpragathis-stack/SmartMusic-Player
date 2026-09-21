@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.geometry.*?>
+
+<VBox xmlns:fx="http://javafx.com/fxml"
+      fx:controller="com.musicplayer.history.HistoryController"
+      stylesheets="@../css/style_spotify.css"
+      style="-fx-background-color: #EBF4FC; -fx-padding: 24;"
+      spacing="18">
+
+    <!-- Top Header -->
+    <HBox alignment="CENTER_LEFT" spacing="15">
+        <VBox spacing="2">
+            <Label text="Listening History &amp; Favorites"
+                   style="-fx-font-size: 24px; -fx-font-weight: 900; -fx-text-fill: #0F172A;"/>
+            <Label text="Track all songs you have played and your play statistics."
+                   style="-fx-font-size: 12px; -fx-text-fill: #64748B;"/>
+        </VBox>
+        <Pane HBox.hgrow="ALWAYS"/>
+        <Button text=" Clear History" onAction="#clearHistory"
+                style="-fx-background-color: #EF4444; -fx-text-fill: white; -fx-font-weight: bold;
+                -fx-background-radius: 8; -fx-cursor: hand; -fx-padding: 8 16;"/>
+        <Button text=" Home" onAction="#goHome"
+                style="-fx-background-color: #0284C7; -fx-text-fill: white; -fx-font-weight: bold;
+                -fx-background-radius: 8; -fx-cursor: hand; -fx-padding: 8 16;"/>
+    </HBox>
+
+    <!-- Dark Navy History Table -->
+    <TableView fx:id="historyTable" VBox.vgrow="ALWAYS"
+               styleClass="table-view">
+        <columns>
+            <TableColumn fx:id="colSong" text="Song Name" prefWidth="260"/>
+            <TableColumn fx:id="colArtist" text="Artist" prefWidth="200"/>
+            <TableColumn fx:id="colPlays" text="Play Count" prefWidth="120"/>
+            <TableColumn fx:id="colSkips" text="Skip Count" prefWidth="120"/>
+            <TableColumn fx:id="colLast" text="Last Played" prefWidth="180"/>
+        </columns>
+    </TableView>
+</VBox>

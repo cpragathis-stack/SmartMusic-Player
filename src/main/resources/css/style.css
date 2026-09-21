@@ -1,0 +1,579 @@
+/* ══════════════════════════════════════════════════════════════════════
+   PREMIUM CYBER DARK NAVY & ELECTRIC SKY BLUE THEME
+   ══════════════════════════════════════════════════════════════════════ */
+
+.root {
+    -fx-base: #0B1120;
+    -fx-background-color: #0B1120;
+    -fx-font-family: 'Segoe UI', 'Helvetica Neue', Arial, sans-serif;
+    -fx-text-fill: #F8FAFC;
+}
+
+/* ─── SCROLLPANE & SCROLLBARS ────────────────────────────────────────── */
+.scroll-pane {
+    -fx-background-color: transparent;
+    -fx-background: transparent;
+    -fx-border-color: transparent;
+}
+
+.scroll-pane > .viewport {
+    -fx-background-color: transparent;
+}
+
+.scroll-bar:vertical, .scroll-bar:horizontal {
+    -fx-background-color: transparent;
+    -fx-pref-width: 8px;
+    -fx-pref-height: 8px;
+}
+
+.scroll-bar .thumb {
+    -fx-background-color: #1E293B;
+    -fx-background-radius: 4px;
+}
+
+.scroll-bar .thumb:hover {
+    -fx-background-color: #38BDF8;
+}
+
+.scroll-bar .track, .scroll-bar .increment-button, .scroll-bar .decrement-button {
+    -fx-background-color: transparent;
+    -fx-opacity: 0;
+}
+
+/* ─── SIDEBAR NAVIGATION ─────────────────────────────────────────────── */
+.sidebar-container {
+    -fx-background-color: #0F172A;
+    -fx-padding: 24 16;
+    -fx-border-color: #1E293B;
+    -fx-border-width: 0 1 0 0;
+}
+
+.sidebar-logo-text {
+    -fx-font-size: 19px;
+    -fx-font-weight: 900;
+    -fx-text-fill: #F8FAFC;
+    -fx-letter-spacing: -0.5px;
+}
+
+.sidebar-badge {
+    -fx-background-color: #38BDF8;
+    -fx-text-fill: #0B1120;
+    -fx-font-size: 10px;
+    -fx-font-weight: bold;
+    -fx-padding: 2 8;
+    -fx-background-radius: 12px;
+}
+
+.sidebar-nav-btn {
+    -fx-background-color: transparent;
+    -fx-text-fill: #94A3B8;
+    -fx-font-size: 13px;
+    -fx-font-weight: bold;
+    -fx-alignment: CENTER_LEFT;
+    -fx-padding: 10 14;
+    -fx-background-radius: 8px;
+    -fx-cursor: hand;
+}
+
+.sidebar-nav-btn:hover {
+    -fx-background-color: #1E293B;
+    -fx-text-fill: #F8FAFC;
+}
+
+.sidebar-nav-btn-active {
+    -fx-background-color: #1E293B;
+    -fx-text-fill: #38BDF8;
+    -fx-font-size: 13px;
+    -fx-font-weight: bold;
+    -fx-alignment: CENTER_LEFT;
+    -fx-padding: 10 14;
+    -fx-background-radius: 8px;
+    -fx-border-color: #0284C7;
+    -fx-border-width: 0 0 0 3px;
+    -fx-cursor: hand;
+}
+
+.sidebar-section-title {
+    -fx-font-size: 11px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #64748B;
+    -fx-padding: 14 0 6 12;
+    -fx-letter-spacing: 0.5px;
+}
+
+/* ─── TOP NAVBAR & FILTER CHIPS ──────────────────────────────────────── */
+.top-navbar {
+    -fx-background-color: #0F172A;
+    -fx-padding: 12 24;
+    -fx-alignment: CENTER_LEFT;
+    -fx-border-color: #1E293B;
+    -fx-border-width: 0 0 1 0;
+}
+
+.search-input-pill {
+    -fx-background-color: #1E293B;
+    -fx-text-fill: #F8FAFC;
+    -fx-prompt-text-fill: #64748B;
+    -fx-font-size: 13px;
+    -fx-background-radius: 500px;
+    -fx-border-radius: 500px;
+    -fx-border-color: #334155;
+    -fx-padding: 10 18;
+}
+
+.search-input-pill:focused {
+    -fx-background-color: #1E293B;
+    -fx-border-color: #38BDF8;
+    -fx-border-width: 1.5px;
+}
+
+.filter-chip {
+    -fx-background-color: #1E293B;
+    -fx-text-fill: #94A3B8;
+    -fx-font-size: 12px;
+    -fx-font-weight: bold;
+    -fx-padding: 7 14;
+    -fx-background-radius: 500px;
+    -fx-border-color: #334155;
+    -fx-border-radius: 500px;
+    -fx-cursor: hand;
+}
+
+.filter-chip:hover {
+    -fx-background-color: #334155;
+    -fx-text-fill: #F8FAFC;
+}
+
+.filter-chip-active {
+    -fx-background-color: #38BDF8;
+    -fx-text-fill: #0B1120;
+    -fx-font-size: 12px;
+    -fx-font-weight: bold;
+    -fx-padding: 7 14;
+    -fx-background-radius: 500px;
+    -fx-cursor: hand;
+}
+
+.user-profile-pill {
+    -fx-background-color: #1E293B;
+    -fx-padding: 4 12 4 4;
+    -fx-background-radius: 500px;
+    -fx-border-color: #334155;
+    -fx-border-radius: 500px;
+    -fx-cursor: hand;
+}
+
+.user-avatar-circle {
+    -fx-background-color: linear-gradient(to bottom right, #38BDF8, #4F46E5);
+    -fx-text-fill: #FFFFFF;
+    -fx-font-weight: bold;
+    -fx-font-size: 14px;
+    -fx-background-radius: 500px;
+    -fx-border-color: #7DD3FC;
+    -fx-border-radius: 500px;
+    -fx-border-width: 2;
+}
+
+.user-profile-name {
+    -fx-text-fill: #F8FAFC;
+    -fx-font-size: 13px;
+    -fx-font-weight: bold;
+}
+
+.user-profile-caption {
+    -fx-text-fill: #94A3B8;
+    -fx-font-size: 10px;
+}
+
+.profile-status-dot {
+    -fx-min-width: 10;
+    -fx-min-height: 10;
+    -fx-max-width: 10;
+    -fx-max-height: 10;
+    -fx-background-color: #22C55E;
+    -fx-background-radius: 500px;
+    -fx-border-color: #0B1120;
+    -fx-border-radius: 500px;
+    -fx-border-width: 1.5;
+    -fx-translate-x: 3;
+    -fx-translate-y: 3;
+}
+
+.profile-menu-chevron {
+    -fx-text-fill: #94A3B8;
+    -fx-font-size: 11px;
+    -fx-padding: 0 6 0 2;
+}
+
+/* ─── HERO & SECTION HEADERS ─────────────────────────────────────────── */
+.hero-greeting {
+    -fx-font-size: 28px;
+    -fx-font-weight: 900;
+    -fx-text-fill: #F8FAFC;
+}
+
+.section-header-title {
+    -fx-font-size: 20px;
+    -fx-font-weight: 800;
+    -fx-text-fill: #F8FAFC;
+}
+
+.section-subtitle {
+    -fx-font-size: 13px;
+    -fx-text-fill: #94A3B8;
+}
+
+/* ─── QUICK PLAY CARDS ───────────────────────────────────────────────── */
+.quick-card {
+    -fx-background-color: #1E293B;
+    -fx-background-radius: 8px;
+    -fx-border-color: #334155;
+    -fx-border-radius: 8px;
+    -fx-cursor: hand;
+    -fx-padding: 0 14 0 0;
+}
+
+.quick-card:hover {
+    -fx-background-color: #334155;
+    -fx-border-color: #38BDF8;
+}
+
+.quick-card-color-box {
+    -fx-background-radius: 8 0 0 8;
+    -fx-min-width: 56px;
+    -fx-min-height: 56px;
+    -fx-max-width: 56px;
+    -fx-max-height: 56px;
+    -fx-alignment: CENTER;
+}
+
+.quick-card-title {
+    -fx-font-size: 13px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #F8FAFC;
+}
+
+/* ─── MUSIC & GENRE CARDS ────────────────────────────────────────────── */
+.music-card {
+    -fx-background-color: #1E293B;
+    -fx-background-radius: 10px;
+    -fx-padding: 14;
+    -fx-border-color: #334155;
+    -fx-border-radius: 10px;
+    -fx-cursor: hand;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.4), 10, 0, 0, 4);
+}
+
+.music-card:hover {
+    -fx-background-color: #24344D;
+    -fx-border-color: #38BDF8;
+    -fx-effect: dropshadow(gaussian, rgba(56, 189, 248, 0.25), 16, 0, 0, 8);
+}
+
+.music-card-artwork {
+    -fx-background-radius: 8px;
+    -fx-min-width: 140px;
+    -fx-min-height: 140px;
+    -fx-max-width: 140px;
+    -fx-max-height: 140px;
+    -fx-alignment: CENTER;
+}
+
+.music-card-title {
+    -fx-font-size: 14px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #F8FAFC;
+    -fx-padding: 10 0 2 0;
+}
+
+.music-card-subtitle {
+    -fx-font-size: 12px;
+    -fx-text-fill: #94A3B8;
+}
+
+.music-card-badge {
+    -fx-background-color: rgba(11, 17, 32, 0.7);
+    -fx-text-fill: #38BDF8;
+    -fx-font-size: 10px;
+    -fx-font-weight: bold;
+    -fx-padding: 2 8;
+    -fx-background-radius: 6px;
+    -fx-border-color: #0284C7;
+    -fx-border-radius: 6px;
+}
+
+/* ─── CIRCULAR ELECTRIC BLUE PLAY BUTTON ─────────────────────────────── */
+.btn-spotify-play-main {
+    -fx-background-color: #38BDF8;
+    -fx-text-fill: #0B1120;
+    -fx-font-size: 16px;
+    -fx-font-weight: bold;
+    -fx-min-width: 44px;
+    -fx-min-height: 44px;
+    -fx-max-width: 44px;
+    -fx-max-height: 44px;
+    -fx-background-radius: 500px;
+    -fx-cursor: hand;
+    -fx-alignment: CENTER;
+    -fx-effect: dropshadow(gaussian, rgba(56, 189, 248, 0.45), 12, 0, 0, 3);
+}
+
+.btn-spotify-play-main:hover {
+    -fx-background-color: #7DD3FC;
+    -fx-scale-x: 1.06;
+    -fx-scale-y: 1.06;
+    -fx-effect: dropshadow(gaussian, rgba(56, 189, 248, 0.7), 16, 0, 0, 4);
+}
+
+/* ─── BOTTOM PERSISTENT PLAYER BAR ───────────────────────────────────── */
+.player-bar-container {
+    -fx-background-color: #0F172A;
+    -fx-border-color: #1E293B;
+    -fx-border-width: 1 0 0 0;
+    -fx-padding: 12 24;
+    -fx-min-height: 85px;
+}
+
+.player-track-title {
+    -fx-font-size: 14px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #F8FAFC;
+}
+
+.player-track-artist {
+    -fx-font-size: 12px;
+    -fx-text-fill: #94A3B8;
+}
+
+.player-control-icon-btn {
+    -fx-background-color: transparent;
+    -fx-text-fill: #94A3B8;
+    -fx-font-size: 14px;
+    -fx-cursor: hand;
+    -fx-padding: 6;
+}
+
+.player-control-icon-btn:hover {
+    -fx-text-fill: #38BDF8;
+}
+
+.player-control-icon-btn-active {
+    -fx-background-color: transparent;
+    -fx-text-fill: #38BDF8;
+    -fx-font-size: 14px;
+    -fx-cursor: hand;
+    -fx-padding: 6;
+}
+
+.btn-player-heart {
+    -fx-background-color: transparent;
+    -fx-text-fill: #64748B;
+    -fx-font-size: 16px;
+    -fx-cursor: hand;
+}
+
+.btn-player-heart:hover {
+    -fx-text-fill: #38BDF8;
+}
+
+.btn-player-heart-liked {
+    -fx-background-color: transparent;
+    -fx-text-fill: #38BDF8;
+    -fx-font-size: 16px;
+    -fx-cursor: hand;
+}
+
+/* ─── SLIDERS (SEEK & VOLUME) ────────────────────────────────────────── */
+.slider .track {
+    -fx-background-color: #334155;
+    -fx-pref-height: 4px;
+    -fx-background-radius: 2px;
+}
+
+.slider:hover .track {
+    -fx-background-color: #475569;
+}
+
+.slider .thumb {
+    -fx-background-color: #38BDF8;
+    -fx-pref-width: 12px;
+    -fx-pref-height: 12px;
+    -fx-background-radius: 500px;
+}
+
+.slider .thumb:hover {
+    -fx-scale-x: 1.25;
+    -fx-scale-y: 1.25;
+    -fx-background-color: #7DD3FC;
+}
+
+/* ─── TABLE VIEW ─────────────────────────────────────────────────────── */
+.spotify-table {
+    -fx-background-color: transparent;
+    -fx-border-color: transparent;
+}
+
+.spotify-table .column-header-background {
+    -fx-background-color: transparent;
+    -fx-border-color: #1E293B;
+    -fx-border-width: 0 0 1 0;
+}
+
+.spotify-table .column-header {
+    -fx-background-color: transparent;
+    -fx-text-fill: #94A3B8;
+    -fx-font-size: 12px;
+    -fx-font-weight: bold;
+    -fx-padding: 8 10;
+}
+
+.spotify-table .table-row-cell {
+    -fx-background-color: transparent;
+    -fx-border-color: transparent;
+    -fx-text-fill: #F8FAFC;
+    -fx-padding: 4 0;
+}
+
+.spotify-table .table-row-cell:hover {
+    -fx-background-color: #1E293B;
+    -fx-background-radius: 6px;
+}
+
+.spotify-table .table-row-cell:selected {
+    -fx-background-color: #24344D;
+    -fx-background-radius: 6px;
+}
+
+.spotify-table .table-cell {
+    -fx-text-fill: #F8FAFC;
+    -fx-font-size: 13px;
+    -fx-alignment: CENTER_LEFT;
+}
+.list-cell:empty {
+    -fx-background-color: transparent;
+    -fx-padding: 0;
+}
+
+.table-row-cell:empty,
+.table-cell:empty {
+    -fx-background-color: transparent;
+    -fx-border-color: transparent;
+    -fx-text-fill: transparent;
+}
+
+.song-list .list-cell {
+    -fx-cell-size: 70px;
+    -fx-background-color: white;
+    -fx-text-fill: #1A5276;
+    -fx-font-size: 13px;
+}
+
+.song-list .list-cell:empty,
+.list-view .list-cell:empty {
+    -fx-background-color: transparent;
+    -fx-border-color: transparent;
+    -fx-text-fill: transparent;
+}
+
+/* ─── SELECTION HIGHLIGHT FIX ───────────────────────────────────────── */
+.list-cell:selected,
+.list-cell:focused:selected {
+    -fx-background-color: #D6EAF8;
+    -fx-background-insets: 4px 8px 4px 8px;
+    -fx-background-radius: 10px;
+    -fx-border-width: 0;
+}
+
+.song-list .list-cell:selected,
+.song-list .list-cell:focused:selected {
+    -fx-background-color: #D6EAF8;
+    -fx-background-insets: 4px 8px 4px 8px;
+    -fx-background-radius: 10px;
+    -fx-border-width: 0;
+}
+
+.list-view {
+    -fx-background-insets: 0;
+    -fx-padding: 6px;
+    -fx-border-width: 0;
+    -fx-background-color: white;
+}
+
+.list-view .list-cell {
+    -fx-padding: 4px 6px;
+}
+
+/* ─── RECOMMENDATIONS TABLE SELECTION FIX ───────────────────────────── */
+.rec-table {
+    -fx-background-insets: 0;
+    -fx-padding: 6px;
+    -fx-border-width: 0;
+    -fx-background-color: white;
+    -fx-background-radius: 12;
+}
+
+.rec-table .table-row-cell {
+    -fx-background-color: white;
+    -fx-border-color: transparent;
+    -fx-border-width: 0;
+}
+
+.rec-table .table-row-cell:filled:selected,
+.rec-table .table-row-cell:focused:filled:selected {
+    -fx-background-color: #D6EAF8;
+    -fx-background-insets: 2px 6px 2px 6px;
+    -fx-background-radius: 8px;
+    -fx-border-width: 0;
+}
+
+.rec-table .table-row-cell:hover {
+    -fx-background-color: #EBF5FB;
+    -fx-background-radius: 8px;
+}
+
+/* ─── SONG ROW "⋮" MENU BUTTON (single clean glyph, no arrow) ───────── */
+.song-list .menu-button {
+    -fx-background-color: transparent;
+    -fx-background-radius: 6px;
+    -fx-padding: 0;
+    -fx-cursor: hand;
+}
+
+.song-list .menu-button:hover {
+    -fx-background-color: #D6EAF8;
+}
+
+.song-list .menu-button > .arrow-button {
+    -fx-background-color: transparent;
+    -fx-padding: 0;
+    -fx-min-width: 0;
+    -fx-max-width: 0;
+    -fx-pref-width: 0;
+}
+
+.song-list .menu-button > .arrow-button > .arrow {
+    -fx-padding: 0;
+}
+
+/* ─── SUBTLE SCROLLBARS (LIST + TABLE) ──────────────────────────────── */
+.list-view .scroll-bar:vertical .thumb,
+.rec-table .scroll-bar:vertical .thumb {
+    -fx-background-color: #A9CCE3;
+    -fx-background-radius: 5px;
+}
+
+.list-view .scroll-bar:vertical .track,
+.rec-table .scroll-bar:vertical .track {
+    -fx-background-color: transparent;
+}
+
+.list-view .scroll-bar:vertical,
+.rec-table .scroll-bar:vertical {
+    -fx-background-color: transparent;
+    -fx-pref-width: 10px;
+}
+
+.list-view .virtual-flow .corner,
+.rec-table .virtual-flow .corner {
+    -fx-background-color: transparent;
+}

@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.chart.*?>
+<?import javafx.geometry.*?>
+
+<VBox xmlns:fx="http://javafx.com/fxml"
+      fx:controller="com.musicplayer.dashboard.DashboardController"
+      stylesheets="@../css/style_spotify.css"
+      style="-fx-background-color: #EBF4FC; -fx-padding: 24;"
+      spacing="20">
+
+    <!-- Top Header -->
+    <HBox alignment="CENTER_LEFT" spacing="15">
+        <VBox spacing="2">
+            <Label text="Listening Analytics"
+                   style="-fx-font-size: 24px; -fx-font-weight: 900; -fx-text-fill: #0F172A;"/>
+            <Label text="Visual insights into your offline listening trends and favorite genres."
+                   style="-fx-font-size: 12px; -fx-text-fill: #64748B;"/>
+        </VBox>
+        <Pane HBox.hgrow="ALWAYS"/>
+        <Button text=" Home" onAction="#goHome"
+                style="-fx-background-color: #0284C7; -fx-text-fill: white; -fx-font-weight: bold;
+                -fx-background-radius: 8; -fx-cursor: hand; -fx-padding: 8 18;"/>
+    </HBox>
+
+    <!-- Metrics Row (Dark Navy Cards) -->
+    <HBox spacing="16">
+        <VBox spacing="6" prefWidth="240"
+              style="-fx-background-color: #0F172A; -fx-background-radius: 12; -fx-padding: 16; -fx-border-color: #1E293B; -fx-border-radius: 12;">
+            <Label text="LIBRARY SIZE" style="-fx-text-fill: #94A3B8; -fx-font-size: 11px; -fx-font-weight: bold;"/>
+            <Label fx:id="totalSongs" text="0" style="-fx-text-fill: #38BDF8; -fx-font-size: 24px; -fx-font-weight: 900;"/>
+        </VBox>
+        <VBox spacing="6" prefWidth="240"
+              style="-fx-background-color: #0F172A; -fx-background-radius: 12; -fx-padding: 16; -fx-border-color: #1E293B; -fx-border-radius: 12;">
+            <Label text="TOTAL PLAYS" style="-fx-text-fill: #94A3B8; -fx-font-size: 11px; -fx-font-weight: bold;"/>
+            <Label fx:id="totalPlayed" text="0" style="-fx-text-fill: #10B981; -fx-font-size: 24px; -fx-font-weight: 900;"/>
+        </VBox>
+        <VBox spacing="6" prefWidth="240"
+              style="-fx-background-color: #0F172A; -fx-background-radius: 12; -fx-padding: 16; -fx-border-color: #1E293B; -fx-border-radius: 12;">
+            <Label text="FAVORITES" style="-fx-text-fill: #94A3B8; -fx-font-size: 11px; -fx-font-weight: bold;"/>
+            <Label fx:id="totalFavs" text="0" style="-fx-text-fill: #EC4899; -fx-font-size: 24px; -fx-font-weight: 900;"/>
+        </VBox>
+        <VBox spacing="6" prefWidth="240"
+              style="-fx-background-color: #0F172A; -fx-background-radius: 12; -fx-padding: 16; -fx-border-color: #1E293B; -fx-border-radius: 12;">
+            <Label text="TOP GENRE" style="-fx-text-fill: #94A3B8; -fx-font-size: 11px; -fx-font-weight: bold;"/>
+            <Label fx:id="favGenre" text="Exploring" style="-fx-text-fill: #FBBF24; -fx-font-size: 20px; -fx-font-weight: 900;"/>
+        </VBox>
+        <VBox spacing="6" prefWidth="240"
+              style="-fx-background-color: #0F172A; -fx-background-radius: 12; -fx-padding: 16; -fx-border-color: #1E293B; -fx-border-radius: 12;">
+            <Label text="LISTENING TIME" style="-fx-text-fill: #94A3B8; -fx-font-size: 11px; -fx-font-weight: bold;"/>
+            <Label fx:id="totalTime" text="0s" style="-fx-text-fill: #A78BFA; -fx-font-size: 24px; -fx-font-weight: 900;"/>
+        </VBox>
+    </HBox>
+
+    <!-- Charts Row (Dark Navy Containers) -->
+    <HBox spacing="18" VBox.vgrow="ALWAYS">
+        <VBox spacing="10" HBox.hgrow="ALWAYS"
+              style="-fx-background-color: #0F172A; -fx-background-radius: 14; -fx-padding: 18; -fx-border-color: #1E293B; -fx-border-radius: 14;">
+            <Label text="Top Played Tracks" style="-fx-text-fill: #38BDF8; -fx-font-size: 15px; -fx-font-weight: bold;"/>
+            <BarChart fx:id="topSongsChart" VBox.vgrow="ALWAYS" style="-fx-background-color: transparent;">
+                <xAxis><CategoryAxis label="Song" tickLabelFill="#94A3B8"/></xAxis>
+                <yAxis><NumberAxis label="Plays" tickLabelFill="#94A3B8"/></yAxis>
+            </BarChart>
+        </VBox>
+
+        <VBox spacing="10" prefWidth="380"
+              style="-fx-background-color: #0F172A; -fx-background-radius: 14; -fx-padding: 18; -fx-border-color: #1E293B; -fx-border-radius: 14;">
+            <Label text="Genre Distribution" style="-fx-text-fill: #38BDF8; -fx-font-size: 15px; -fx-font-weight: bold;"/>
+            <PieChart fx:id="genreChart" VBox.vgrow="ALWAYS" style="-fx-background-color: transparent;"/>
+        </VBox>
+    </HBox>
+</VBox>

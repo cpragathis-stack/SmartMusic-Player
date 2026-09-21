@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.geometry.*?>
+
+<VBox xmlns:fx="http://javafx.com/fxml"
+      fx:controller=
+              "com.musicplayer.recommendation.RecommendationController"
+      spacing="20"
+      stylesheets="@../css/style.css"
+      style="-fx-background-color: #EBF5FB;
+      -fx-padding: 30;">
+
+    <!-- HEADER -->
+    <HBox alignment="CENTER_LEFT"
+          spacing="15">
+        <Label text="For You - Mood-Based Picks"
+               style="-fx-font-size: 22px;
+               -fx-font-weight: bold;
+               -fx-text-fill: #FFD700;"/>
+        <Pane HBox.hgrow="ALWAYS"/>
+        <Button text="Refresh"
+                onAction="#loadRecommendations"
+                style="-fx-background-color:
+                #1ABC9C;
+                -fx-text-fill: white;
+                -fx-font-weight: bold;
+                -fx-background-radius: 8;
+                -fx-cursor: hand;
+                -fx-padding: 8 15;"/>
+        <Button text="Home"
+                onAction="#goHome"
+                style="-fx-background-color:
+                #2E86C1;
+                -fx-text-fill: white;
+                -fx-font-weight: bold;
+                -fx-background-radius: 8;
+                -fx-cursor: hand;
+                -fx-padding: 8 15;"/>
+    </HBox>
+
+    <!-- INFO -->
+    <Label text="Ranked by your plays, favourites, skips, language and listening time - all offline"
+           style="-fx-text-fill: #2E86C1;
+           -fx-font-size: 13px;"/>
+
+    <!-- MOOD FILTERS -->
+    <HBox fx:id="moodButtons" spacing="10" alignment="CENTER_LEFT">
+        <ToggleButton text="All" userData="ALL" selected="true"
+                      onAction="#filterAll"
+                      styleClass="btn-secondary"
+                      style="-fx-font-weight: bold; -fx-background-radius: 500px; -fx-padding: 6 16;
+                      -fx-background-color: #2ECC71; -fx-text-fill: white;"/>
+        <ToggleButton text="Happy" userData="HAPPY"
+                      onAction="#filterHappy"
+                      styleClass="btn-secondary"
+                      style="-fx-font-weight: bold; -fx-background-radius: 500px; -fx-padding: 6 16;
+                      -fx-background-color: #F1C40F; -fx-text-fill: #1A202C;"/>
+        <ToggleButton text="Sad" userData="SAD"
+                      onAction="#filterSad"
+                      styleClass="btn-secondary"
+                      style="-fx-font-weight: bold; -fx-background-radius: 500px; -fx-padding: 6 16;
+                      -fx-background-color: #7F8C8D; -fx-text-fill: white;"/>
+        <ToggleButton text="Energetic" userData="ENERGETIC"
+                      onAction="#filterEnergetic"
+                      styleClass="btn-secondary"
+                      style="-fx-font-weight: bold; -fx-background-radius: 500px; -fx-padding: 6 16;
+                      -fx-background-color: #E74C3C; -fx-text-fill: white;"/>
+        <ToggleButton text="Chill" userData="CHILL"
+                      onAction="#filterChill"
+                      styleClass="btn-secondary"
+                      style="-fx-font-weight: bold; -fx-background-radius: 500px; -fx-padding: 6 16;
+                      -fx-background-color: #3498DB; -fx-text-fill: white;"/>
+        <ToggleButton text="Calm" userData="CALM"
+                      onAction="#filterCalm"
+                      styleClass="btn-secondary"
+                      style="-fx-font-weight: bold; -fx-background-radius: 500px; -fx-padding: 6 16;
+                      -fx-background-color: #16A085; -fx-text-fill: white;"/>
+        <ToggleButton text="Focus" userData="FOCUS"
+                      onAction="#filterFocus"
+                      styleClass="btn-secondary"
+                      style="-fx-font-weight: bold; -fx-background-radius: 500px; -fx-padding: 6 16;
+                      -fx-background-color: #8E44AD; -fx-text-fill: white;"/>
+        <ToggleButton text="Night" userData="NIGHT"
+                      onAction="#filterNight"
+                      styleClass="btn-secondary"
+                      style="-fx-font-weight: bold; -fx-background-radius: 500px; -fx-padding: 6 16;
+                      -fx-background-color: #2C3E50; -fx-text-fill: white;"/>
+        <ToggleButton text="Devotional" userData="DEVOTIONAL"
+                      onAction="#filterDevotional"
+                      styleClass="btn-secondary"
+                      style="-fx-font-weight: bold; -fx-background-radius: 500px; -fx-padding: 6 16;
+                      -fx-background-color: #D35400; -fx-text-fill: white;"/>
+    </HBox>
+
+    <Label fx:id="genreLabel"
+           text=""
+           style="-fx-text-fill: #1ABC9C;
+           -fx-font-size: 13px;
+           -fx-font-weight: bold;"/>
+
+    <!-- TABLE -->
+    <TableView fx:id="recTable"
+               fixedCellSize="70"
+               styleClass="rec-table"
+               VBox.vgrow="ALWAYS"
+               style="-fx-background-color:
+               white;
+               -fx-background-radius: 12;">
+        <columns>
+            <TableColumn fx:id="colRank"
+                         text="Rank"
+                         prefWidth="60"/>
+            <TableColumn fx:id="colSong"
+                         text="Song Name"
+                         prefWidth="260"/>
+            <TableColumn fx:id="colArtist"
+                         text="Artist"
+                         prefWidth="180"/>
+            <TableColumn fx:id="colGenre"
+                         text="Genre"
+                         prefWidth="120"/>
+            <TableColumn fx:id="colPlay"
+                         text="Play"
+                         prefWidth="100"/>
+        </columns>
+    </TableView>
+
+    <!-- STATUS -->
+    <Label fx:id="statusLabel"
+           text="Loading recommendations..."
+           style="-fx-text-fill: #2E86C1;
+           -fx-font-size: 12px;"/>
+
+</VBox>

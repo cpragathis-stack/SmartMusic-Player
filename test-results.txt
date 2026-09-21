@@ -1,0 +1,43 @@
+PASS  insertSongDirectly adds new tracks
+PASS  duplicate file path is rejected (INSERT OR IGNORE)
+PASS  exactly 3 songs after duplicate attempt
+PASS  song ids resolved
+PASS  search finds substring matches (song/artist/album)
+PASS  search returns empty for unknown term
+PASS  recordPlay increments play count
+PASS  recordSkip recorded a skip
+PASS  listening_seconds accumulates
+PASS  hasAnyHistory reflects real plays
+PASS  chronological ListeningLog row appended
+PASS  listening log is newest-first
+PASS  addToFavorites persists
+PASS  isFavorite true after add
+PASS  getFavoriteSongs lists favorited track
+PASS  removeFromFavorites clears
+PASS  isFavorite false after remove
+PASS  createPlaylist persists
+PASS  getAllPlaylists lists the new playlist
+PASS  addSongToPlaylist adds track
+PASS  getSongsInPlaylist returns the track
+PASS  removeSongFromPlaylist removes track
+PASS  playlist empty after removal
+PASS  deletePlaylist removes playlist
+PASS  getAllPlaylists empty after delete
+PASS  play counts are isolated per user (u2 got own count)
+PASS  hash is not plain text
+PASS  verify accepts correct password
+PASS  verify rejects wrong password
+PASS  registerUser creates account
+PASS  registered password stored hashed
+PASS  login with wrong password fails
+PASS  login with correct password succeeds
+PASS  legacy plaintext password still logs in
+PASS  legacy plaintext rejected on wrong password
+PASS  recommendations return a ranked list
+PASS  highest-scoring track ranks first
+PASS  top rank exposes the computed score
+PASS  every pick has an explainable reason
+PASS  reason mentions the hearted track
+PASS  re-opening the database keeps history
+
+SUMMARY  41 passed, 0 failed

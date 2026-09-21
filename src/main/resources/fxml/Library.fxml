@@ -1,0 +1,359 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+
+<BorderPane
+        xmlns:fx="http://javafx.com/fxml"
+        fx:controller="com.musicplayer.library.LibraryController"
+        prefWidth="1100"
+        prefHeight="700"
+        style="-fx-background-color: #EBF4FC;">
+
+    <!-- ========================= -->
+    <!-- TOP BAR -->
+    <!-- ========================= -->
+
+    <top>
+
+        <HBox
+                alignment="CENTER_LEFT"
+                spacing="15"
+                prefHeight="70"
+                style="-fx-background-color: #E0F2FE;
+                       -fx-border-color: #BAE6FD;
+                       -fx-border-width: 0 0 1 0;
+                       -fx-padding: 0 24;">
+
+            <Label
+                    text=" Music Library"
+                    style="-fx-font-size: 22px;
+                           -fx-font-weight: bold;
+                           -fx-text-fill: #0369A1;"/>
+
+            <Pane
+                    HBox.hgrow="ALWAYS"/>
+
+            <Button
+                    text=" Home"
+                    onAction="#goHome"
+                    style="-fx-background-color: #334155;
+                           -fx-text-fill: white;
+                           -fx-font-weight: bold;
+                           -fx-background-radius: 20;
+                           -fx-padding: 8 18;
+                           -fx-cursor: hand;"/>
+
+            <Button
+                    text="▶ Now Playing"
+                    onAction="#openPlayer"
+                    style="-fx-background-color: #0284C7;
+                           -fx-text-fill: white;
+                           -fx-font-weight: bold;
+                           -fx-background-radius: 20;
+                           -fx-padding: 8 18;
+                           -fx-cursor: hand;"/>
+
+        </HBox>
+
+    </top>
+
+
+    <!-- ========================= -->
+    <!-- MAIN CONTENT -->
+    <!-- ========================= -->
+
+    <center>
+
+        <VBox
+                spacing="18"
+                style="-fx-padding: 25;">
+
+            <!-- HEADER -->
+
+            <HBox
+                    alignment="CENTER_LEFT"
+                    spacing="12">
+
+                <VBox
+                        spacing="4">
+
+                    <Label
+                            text="Your Songs"
+                            style="-fx-font-size: 26px;
+                                   -fx-font-weight: bold;
+                                   -fx-text-fill: #0F172A;"/>
+
+                    <Label
+                            text="Browse and play your offline music collection."
+                            style="-fx-font-size: 13px;
+                                   -fx-text-fill: #64748B;"/>
+
+                </VBox>
+
+                <Pane
+                        HBox.hgrow="ALWAYS"/>
+
+                <TextField
+                        fx:id="searchField"
+                        prefWidth="260"
+                        promptText=" Search song, artist or genre"
+                        style="-fx-background-color: white;
+                               -fx-background-radius: 20;
+                               -fx-border-color: #BAE6FD;
+                               -fx-border-radius: 20;
+                               -fx-padding: 9 15;"/>
+
+                <Button
+                        text="＋ Add Songs"
+                        onAction="#addSongs"
+                        style="-fx-background-color: #6D28D9;
+                               -fx-text-fill: white;
+                               -fx-font-weight: bold;
+                               -fx-background-radius: 20;
+                               -fx-padding: 9 18;
+                               -fx-cursor: hand;"/>
+
+                <Button
+                        text="↻ Refresh"
+                        onAction="#refreshSongs"
+                        style="-fx-background-color: #0F172A;
+                               -fx-text-fill: white;
+                               -fx-font-weight: bold;
+                               -fx-background-radius: 20;
+                               -fx-padding: 9 18;
+                               -fx-cursor: hand;"/>
+
+            </HBox>
+
+            <HBox alignment="CENTER_LEFT" spacing="8">
+                <Label text="Language:" style="-fx-font-weight: bold; -fx-text-fill: #0369A1;"/>
+                <Button text="All" onAction="#showAllLanguages" styleClass="btn-secondary"/>
+                <Button text="Tamil" onAction="#showTamilSongs" styleClass="btn-secondary"/>
+                <Button text="Hindi" onAction="#showHindiSongs" styleClass="btn-secondary"/>
+                <Button text="English" onAction="#showEnglishSongs" styleClass="btn-secondary"/>
+            </HBox>
+
+            <!-- ========================= -->
+            <!-- TABLE -->
+            <!-- ========================= -->
+
+            <TableView
+                    fx:id="songTable"
+                    VBox.vgrow="ALWAYS"
+                    style="-fx-background-color: white;
+                           -fx-border-color: #BAE6FD;
+                           -fx-border-radius: 10;
+                           -fx-background-radius: 10;">
+
+                <columns>
+
+                    <TableColumn
+                            fx:id="colId"
+                            text="#"
+                            prefWidth="55"/>
+
+                    <TableColumn
+                            fx:id="colSong"
+                            text="Song"
+                            prefWidth="230"/>
+
+                    <TableColumn
+                            fx:id="colArtist"
+                            text="Artist"
+                            prefWidth="180"/>
+
+                    <TableColumn
+                            fx:id="colGenre"
+                            text="Genre"
+                            prefWidth="130"/>
+
+                    <TableColumn
+                            fx:id="colAlbum"
+                            text="Album"
+                            prefWidth="160"/>
+
+                    <TableColumn
+                            fx:id="colDuration"
+                            text="Duration"
+                            prefWidth="90"/>
+
+                    <TableColumn
+                            fx:id="colLanguage"
+                            text="Language"
+                            prefWidth="100"/>
+
+                    <TableColumn
+                            fx:id="colPlay"
+                            text="Action"
+                            prefWidth="110"/>
+
+                </columns>
+
+                <placeholder>
+
+                    <Label
+                            text="No songs found in database."
+                            style="-fx-text-fill: #64748B;
+                                   -fx-font-size: 14px;"/>
+
+                </placeholder>
+
+            </TableView>
+
+
+            <!-- ========================= -->
+            <!-- BOTTOM CONTROLS -->
+            <!-- ========================= -->
+
+            <HBox
+                    alignment="CENTER_LEFT"
+                    spacing="12">
+
+                <Button
+                        text="▶ Play Selected"
+                        onAction="#playSelectedSong"
+                        style="-fx-background-color: #38BDF8;
+                               -fx-text-fill: #0F172A;
+                               -fx-font-weight: bold;
+                               -fx-background-radius: 20;
+                               -fx-padding: 10 20;
+                               -fx-cursor: hand;"/>
+
+                <Button
+                        text="▶ Now Playing"
+                        onAction="#openPlayer"
+                        style="-fx-background-color: #0F172A;
+                               -fx-text-fill: white;
+                               -fx-font-weight: bold;
+                               -fx-background-radius: 20;
+                               -fx-padding: 10 20;
+                               -fx-cursor: hand;"/>
+
+                <Pane
+                        HBox.hgrow="ALWAYS"/>
+
+                <Label
+                        fx:id="statusLabel"
+                        text="Songs: 0"
+                        style="-fx-text-fill: #0369A1;
+                               -fx-font-weight: bold;
+                               -fx-font-size: 13px;"/>
+
+            </HBox>
+
+        </VBox>
+
+    </center>
+
+
+    <!-- ========================= -->
+    <!-- LEFT SIDEBAR -->
+    <!-- ========================= -->
+
+    <left>
+
+        <VBox
+                prefWidth="190"
+                spacing="8"
+                style="-fx-background-color: #0F172A;
+                       -fx-padding: 20 12;">
+
+            <Label
+                    text="MENU"
+                    style="-fx-text-fill: #94A3B8;
+                           -fx-font-size: 11px;
+                           -fx-font-weight: bold;
+                           -fx-padding: 8 10;"/>
+
+
+            <Button
+                    text="Home"
+                    onAction="#goHome"
+                    prefHeight="42"
+                    maxWidth="Infinity"
+                    style="-fx-background-color: transparent;
+                           -fx-text-fill: white;
+                           -fx-font-weight: bold;
+                           -fx-alignment: CENTER_LEFT;
+                           -fx-padding: 10;
+                           -fx-cursor: hand;"/>
+
+
+            <Button
+                    text="Music Library"
+                    prefHeight="42"
+                    maxWidth="Infinity"
+                    style="-fx-background-color: #0284C7;
+                           -fx-text-fill: white;
+                           -fx-font-weight: bold;
+                           -fx-background-radius: 8;
+                           -fx-alignment: CENTER_LEFT;
+                           -fx-padding: 10;
+                           -fx-cursor: hand;"/>
+
+
+            <Button
+                    text="▶  Now Playing"
+                    onAction="#openPlayer"
+                    prefHeight="42"
+                    maxWidth="Infinity"
+                    style="-fx-background-color: transparent;
+                           -fx-text-fill: white;
+                           -fx-font-weight: bold;
+                           -fx-alignment: CENTER_LEFT;
+                           -fx-padding: 10;
+                           -fx-cursor: hand;"/>
+
+
+            <Button
+                    text="Playlists"
+                    onAction="#openPlaylist"
+                    prefHeight="42"
+                    maxWidth="Infinity"
+                    style="-fx-background-color: transparent;
+                           -fx-text-fill: white;
+                           -fx-font-weight: bold;
+                           -fx-alignment: CENTER_LEFT;
+                           -fx-padding: 10;
+                           -fx-cursor: hand;"/>
+
+
+            <Button
+                    text="Favorites"
+                    onAction="#openFavorites"
+                    prefHeight="42"
+                    maxWidth="Infinity"
+                    style="-fx-background-color: transparent;
+                           -fx-text-fill: white;
+                           -fx-font-weight: bold;
+                           -fx-alignment: CENTER_LEFT;
+                           -fx-padding: 10;
+                           -fx-cursor: hand;"/>
+
+
+            <Button
+                    text="Recommendations"
+                    onAction="#openRecommendations"
+                    prefHeight="42"
+                    maxWidth="Infinity"
+                    style="-fx-background-color: transparent;
+                           -fx-text-fill: white;
+                           -fx-font-weight: bold;
+                           -fx-alignment: CENTER_LEFT;
+                           -fx-padding: 10;
+                           -fx-cursor: hand;"/>
+
+        </VBox>
+
+    </left>
+
+</BorderPane>

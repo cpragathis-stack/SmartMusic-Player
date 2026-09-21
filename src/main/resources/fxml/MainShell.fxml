@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.geometry.*?>
+
+<BorderPane xmlns:fx="http://javafx.com/fxml"
+            fx:controller="com.musicplayer.dashboard.MainShellController"
+            prefWidth="1280" prefHeight="820"
+            stylesheets="@../css/style_spotify.css">
+
+    <!-- ════════════════ LEFT SIDEBAR ════════════════ -->
+    <left>
+        <VBox prefWidth="250" spacing="8" styleClass="sidebar-container">
+            <!-- Brand Logo -->
+            <HBox alignment="CENTER_LEFT" spacing="10" style="-fx-padding: 0 0 16 8;">
+                <StackPane prefWidth="38" prefHeight="38" maxWidth="38" maxHeight="38"
+                           style="-fx-background-color: linear-gradient(to bottom right, #4F46E5, #EC4899); -fx-background-radius: 10px;">
+                    <Label text="" style="-fx-font-size: 18px; -fx-text-fill: #FFFFFF;"/>
+                </StackPane>
+                <VBox spacing="2">
+                    <Label text="SmartBeats" styleClass="sidebar-logo-text"/>
+                    <Label text="Offline Player" styleClass="sidebar-badge"/>
+                </VBox>
+            </HBox>
+
+            <!-- Main Menu -->
+            <Label text="MENU" styleClass="sidebar-section-title"/>
+            <Button fx:id="btnHome" text="Home" onAction="#showHome"
+                    prefWidth="220" styleClass="sidebar-nav-btn-active"/>
+            <Button fx:id="btnExplore" text="Search &amp; Explore" onAction="#showExplore"
+                    prefWidth="220" styleClass="sidebar-nav-btn"/>
+            <Button fx:id="btnLibrary" text="Your Library" onAction="#showLibrary"
+                    prefWidth="220" styleClass="sidebar-nav-btn"/>
+
+            <!-- Smart Features -->
+            <Label text="MADE FOR YOU" styleClass="sidebar-section-title"/>
+            <Button fx:id="btnRecommendations" text="★ For You" onAction="#showRecommendations"
+                    prefWidth="220" styleClass="sidebar-nav-btn sidebar-recommend-btn"/>
+            <Button fx:id="btnDashboard" text="Listening Analytics" onAction="#showDashboard"
+                    prefWidth="220" styleClass="sidebar-nav-btn"/>
+
+            <!-- Playlists Divider -->
+            <Label text="YOUR PLAYLISTS" styleClass="sidebar-section-title"/>
+            <Button text="Create Playlist" onAction="#createNewPlaylist"
+                    prefWidth="220" style="-fx-background-color: transparent; -fx-text-fill: #4F46E5; -fx-font-weight: bold; -fx-alignment: CENTER_LEFT; -fx-padding: 8 14; -fx-cursor: hand;"/>
+            <Button text="Liked Songs" onAction="#showFavorites"
+                    prefWidth="220" style="-fx-background-color: transparent; -fx-text-fill: #64748B; -fx-font-weight: bold; -fx-alignment: CENTER_LEFT; -fx-padding: 8 14; -fx-cursor: hand;"/>
+
+            <ListView fx:id="sidebarPlaylistList" VBox.vgrow="ALWAYS"
+                      onMouseClicked="#handlePlaylistClick"
+                      style="-fx-background-color: transparent; -fx-border-color: transparent;"/>
+        </VBox>
+    </left>
+
+    <!-- ════════════════ TOP NAVBAR & CENTER CONTAINER ════════════════ -->
+    <center>
+        <VBox styleClass="main-center-root">
+            <!-- Top Navbar -->
+            <HBox spacing="16" styleClass="top-navbar-container" alignment="CENTER_LEFT">
+                <!-- Search field with magnifier icon -->
+                <StackPane alignment="CENTER_LEFT">
+                    <TextField fx:id="globalSearchField" promptText="Search music library"
+                               prefWidth="360" minWidth="320" maxWidth="620" styleClass="nav-search-field"
+                               style="-fx-padding: 9 18 9 34;"/>
+                    <StackPane mouseTransparent="true" alignment="CENTER" translateX="12" prefWidth="18" prefHeight="18">
+                        <Region style="-fx-min-width:13; -fx-min-height:13; -fx-max-width:13; -fx-max-height:13; -fx-background-radius:7; -fx-background-insets:0; -fx-background-color:transparent; -fx-border-color:#64748B; -fx-border-width:2; -fx-border-radius:7;"/>
+                        <Region style="-fx-min-width:2.5; -fx-min-height:7; -fx-max-width:2.5; -fx-max-height:7; -fx-background-color:#64748B; -fx-background-radius:2; -fx-rotate:45; -fx-translate-x:5.5; -fx-translate-y:4.5;"/>
+                    </StackPane>
+                </StackPane>
+
+                <!-- Dynamic / Filter Chips Container (horizontally scrollable) -->
+                <ScrollPane styleClass="chip-scroll" HBox.hgrow="ALWAYS" minWidth="140" fitToHeight="true" fitToWidth="false"
+                            hbarPolicy="AS_NEEDED" vbarPolicy="NEVER"
+                            style="-fx-background-color: transparent; -fx-background: transparent; -fx-border-color: transparent; -fx-padding: 0 0 2 0;">
+                    <HBox fx:id="genreChipsContainer" spacing="8" alignment="CENTER_LEFT"/>
+                </ScrollPane>
+
+                <!-- User Profile & Logout -->
+                <HBox spacing="10" alignment="CENTER">
+                    <HBox fx:id="profilePill" alignment="CENTER_LEFT" spacing="10" styleClass="user-profile-pill">
+                        <StackPane>
+                            <Label fx:id="userAvatarLabel" text="G" styleClass="user-avatar-circle"
+                                   minWidth="34" minHeight="34" alignment="CENTER"/>
+                            <Region styleClass="profile-status-dot" StackPane.alignment="BOTTOM_RIGHT"/>
+                        </StackPane>
+                        <VBox spacing="1">
+                            <Label fx:id="usernameLabel" text="Guest" styleClass="user-profile-name"/>
+                            <Label text="Your Profile" styleClass="user-profile-caption"/>
+                        </VBox>
+                        <Label text="&#x25BE;" styleClass="profile-menu-chevron"/>
+                    </HBox>
+                    <Button text="Logout" onAction="#handleLogout" styleClass="nav-logout-btn"/>
+                </HBox>
+            </HBox>
+
+            <!-- Dynamic Center Content Host -->
+            <ScrollPane fx:id="mainScrollPane" VBox.vgrow="ALWAYS" fitToWidth="true"
+                        style="-fx-background-color: transparent; -fx-border-color: transparent;">
+                <VBox fx:id="centerContent" spacing="28" style="-fx-padding: 24 32; -fx-background-color: transparent;">
+                    <!-- Dynamically populated view components go here -->
+                </VBox>
+            </ScrollPane>
+        </VBox>
+    </center>
+
+    <!-- ════════════════ BOTTOM PERSISTENT PLAYER BAR ════════════════ -->
+    <bottom>
+        <fx:include source="PlayerBar.fxml"/>
+    </bottom>
+
+</BorderPane>

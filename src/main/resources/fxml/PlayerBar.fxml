@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Slider?>
+<?import javafx.scene.control.Tooltip?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.VBox?>
+
+<HBox xmlns:fx="http://javafx.com/fxml"
+      fx:controller="com.musicplayer.player.PlayerBarController"
+      alignment="CENTER_LEFT" spacing="20" styleClass="player-bar-container">
+    <HBox alignment="CENTER_LEFT" spacing="14" prefWidth="280">
+        <StackPane fx:id="coverPane" prefWidth="56" prefHeight="56"
+                   style="-fx-background-color: #4F46E5; -fx-background-radius: 8;">
+            <Label text="♫" style="-fx-font-size: 24px; -fx-text-fill: white;"/>
+        </StackPane>
+        <VBox alignment="CENTER_LEFT" spacing="3">
+            <Label fx:id="songTitleLabel" text="Select a local song" styleClass="player-track-title"/>
+            <Label fx:id="artistLabel" text="SmartBeats Offline" styleClass="player-track-artist"/>
+        </VBox>
+    </HBox>
+    <VBox alignment="CENTER" spacing="6" HBox.hgrow="ALWAYS">
+        <HBox alignment="CENTER" spacing="14">
+            <Button fx:id="shuffleButton" text="Shuf" onAction="#toggleShuffle" styleClass="player-control-icon-btn">
+                <tooltip><Tooltip text="Shuffle"/></tooltip>
+            </Button>
+            <Button text="⏮" onAction="#previous" styleClass="player-control-icon-btn">
+                <tooltip><Tooltip text="Previous"/></tooltip>
+            </Button>
+            <Button fx:id="playPauseButton" text="▶" onAction="#togglePlayPause" styleClass="btn-play-pause-circle"/>
+            <Button text="⏭" onAction="#next" styleClass="player-control-icon-btn">
+                <tooltip><Tooltip text="Next"/></tooltip>
+            </Button>
+            <Button fx:id="repeatButton" text="Rept" onAction="#toggleRepeat" styleClass="player-control-icon-btn">
+                <tooltip><Tooltip text="Repeat"/></tooltip>
+            </Button>
+        </HBox>
+        <HBox alignment="CENTER" spacing="10" maxWidth="600">
+            <Label fx:id="elapsedLabel" text="0:00" styleClass="player-track-artist"/>
+            <Slider fx:id="progressSlider" min="0" max="100" value="0" HBox.hgrow="ALWAYS"/>
+            <Label fx:id="durationLabel" text="0:00" styleClass="player-track-artist"/>
+        </HBox>
+    </VBox>
+    <HBox alignment="CENTER_RIGHT" spacing="10" prefWidth="180">
+        <Button fx:id="muteButton" text="Mute" onAction="#toggleMute" styleClass="player-control-icon-btn">
+            <tooltip><Tooltip text="Mute"/></tooltip>
+        </Button>
+        <Slider fx:id="volumeSlider" min="0" max="100" value="80" prefWidth="110"/>
+    </HBox>
+</HBox>

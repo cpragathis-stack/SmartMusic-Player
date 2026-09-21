@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.geometry.*?>
+
+<HBox xmlns:fx="http://javafx.com/fxml"
+      fx:controller="com.musicplayer.auth.RegisterController"
+      prefWidth="940" prefHeight="620"
+      stylesheets="@../css/style_spotify.css"
+      style="-fx-background-color: #F8FAFC;">
+
+    <!-- LEFT BRAND PANEL -->
+    <VBox prefWidth="420" alignment="CENTER" spacing="22"
+          style="-fx-background-color: linear-gradient(to bottom right, #EEF2FF, #F1F5F9, #FFFFFF); -fx-padding: 50; -fx-border-color: #E2E8F0; -fx-border-width: 0 1 0 0;">
+
+        <StackPane prefWidth="80" prefHeight="80" maxWidth="80" maxHeight="80"
+                   style="-fx-background-color: linear-gradient(to bottom right, #4F46E5, #EC4899); -fx-background-radius: 40px; -fx-effect: dropshadow(gaussian, rgba(79, 70, 229, 0.25), 15, 0, 0, 4);">
+            <Label text="" style="-fx-font-size: 38px; -fx-text-fill: #FFFFFF;"/>
+        </StackPane>
+
+        <VBox spacing="4" alignment="CENTER">
+            <Label text="MUSIC PLAYER"
+                   style="-fx-font-size: 26px; -fx-font-weight: 900; -fx-text-fill: #0F172A; -fx-letter-spacing: -0.5px;"/>
+            <Label text="Create your free offline music hub"
+                   style="-fx-font-size: 13px; -fx-font-weight: bold; -fx-text-fill: #4F46E5; -fx-text-alignment: center;"/>
+        </VBox>
+
+        <Label text="Unlimited offline listening with personalized smart recommendations, custom playlists, and zero internet required."
+               style="-fx-font-size: 12px; -fx-text-fill: #64748B; -fx-wrap-text: true; -fx-text-alignment: center;"/>
+
+    </VBox>
+
+    <!-- RIGHT REGISTER FORM -->
+    <VBox prefWidth="520" alignment="CENTER" spacing="16"
+          style="-fx-background-color: #FFFFFF; -fx-padding: 50;">
+
+        <Label text="Create an Account"
+               style="-fx-font-size: 28px; -fx-font-weight: 900; -fx-text-fill: #0F172A;"/>
+
+        <Label text="Start enjoying your personalized offline music library."
+               style="-fx-font-size: 13px; -fx-text-fill: #64748B;"/>
+
+        <!-- Username -->
+        <VBox spacing="5" prefWidth="350" maxWidth="350">
+            <Label text="Username"
+                   style="-fx-font-size: 12px; -fx-font-weight: bold; -fx-text-fill: #334155;"/>
+            <TextField fx:id="usernameField" promptText="Choose a username" prefHeight="42"
+                       styleClass="auth-input"/>
+        </VBox>
+
+        <!-- Email -->
+        <VBox spacing="5" prefWidth="350" maxWidth="350">
+            <Label text="Email Address"
+                   style="-fx-font-size: 12px; -fx-font-weight: bold; -fx-text-fill: #334155;"/>
+            <TextField fx:id="emailField" promptText="e.g. pragathi@example.com" prefHeight="42"
+                       styleClass="auth-input"/>
+        </VBox>
+
+        <!-- Password -->
+        <VBox spacing="5" prefWidth="350" maxWidth="350">
+            <Label text="Password"
+                   style="-fx-font-size: 12px; -fx-font-weight: bold; -fx-text-fill: #334155;"/>
+            <PasswordField fx:id="passwordField" promptText="Create a password" prefHeight="42"
+                           styleClass="auth-input"/>
+        </VBox>
+
+        <!-- Confirm Password -->
+        <VBox spacing="5" prefWidth="350" maxWidth="350">
+            <Label text="Confirm Password"
+                   style="-fx-font-size: 12px; -fx-font-weight: bold; -fx-text-fill: #334155;"/>
+            <PasswordField fx:id="confirmPasswordField" promptText="Re-enter password" prefHeight="42"
+                           styleClass="auth-input"/>
+        </VBox>
+
+        <!-- Error Message -->
+        <Label fx:id="errorLabel" text="" prefWidth="350" maxWidth="350"
+               style="-fx-text-fill: #EF4444; -fx-font-size: 12px;"/>
+
+        <!-- Sign Up Button -->
+        <Button text="Create Account" prefWidth="350" maxWidth="350" prefHeight="46" onAction="#handleRegister"
+                styleClass="btn-primary-gradient"/>
+
+        <!-- Back to Login -->
+        <HBox alignment="CENTER" spacing="6" prefWidth="350" maxWidth="350" style="-fx-padding: 6 0 0 0;">
+            <Label text="Already have an account?" style="-fx-text-fill: #64748B; -fx-font-size: 13px;"/>
+            <Hyperlink text="Sign in" onAction="#goToLogin"
+                       style="-fx-text-fill: #4F46E5; -fx-font-size: 13px; -fx-font-weight: bold; -fx-underline: false;"/>
+        </HBox>
+
+    </VBox>
+</HBox>

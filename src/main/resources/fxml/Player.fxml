@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.geometry.*?>
+
+<VBox xmlns:fx="http://javafx.com/fxml"
+      fx:controller="com.musicplayer.player.PlayerController"
+      alignment="CENTER" spacing="22"
+      stylesheets="@../css/style_spotify.css"
+      style="-fx-background-color: #EBF4FC; -fx-padding: 36;">
+
+    <!-- Top Navigation -->
+    <HBox alignment="CENTER_RIGHT" spacing="12">
+        <Button text=" Back to Library" onAction="#goToLibrary"
+                style="-fx-background-color: #0284C7; -fx-text-fill: white; -fx-font-weight: bold;
+                -fx-background-radius: 500px; -fx-cursor: hand; -fx-padding: 8 18;"/>
+        <Button text=" Home" onAction="#goHome"
+                style="-fx-background-color: #334155; -fx-text-fill: white; -fx-font-weight: bold;
+                -fx-background-radius: 500px; -fx-cursor: hand; -fx-padding: 8 18;"/>
+    </HBox>
+
+    <!-- Sleek Dark Navy Player Showcase Card (High Contrast Center) -->
+    <VBox alignment="CENTER" spacing="12" prefWidth="540" maxWidth="540"
+          style="-fx-background-color: #0F172A; -fx-background-radius: 24; -fx-padding: 40;
+          -fx-border-color: #1E293B; -fx-border-radius: 24;
+          -fx-effect: dropshadow(gaussian, rgba(15, 23, 42, 0.25), 24, 0, 0, 8);">
+
+        <StackPane prefWidth="120" prefHeight="120" maxWidth="120" maxHeight="120"
+                   style="-fx-background-color: linear-gradient(to bottom right, #0284C7, #38BDF8); -fx-background-radius: 60;">
+            <Label text="" style="-fx-font-size: 54px; -fx-text-fill: white;"/>
+        </StackPane>
+
+        <Label fx:id="songNameLabel" text="Select a Song"
+               style="-fx-font-size: 24px; -fx-font-weight: 900; -fx-text-fill: #FFFFFF;"/>
+
+        <Label fx:id="artistLabel" text="Artist"
+               style="-fx-font-size: 15px; -fx-font-weight: bold; -fx-text-fill: #38BDF8;"/>
+
+        <Label fx:id="genreLabel" text="Genre"
+               style="-fx-font-size: 13px; -fx-text-fill: #94A3B8;"/>
+    </VBox>
+
+    <!-- Playback Controls -->
+    <HBox alignment="CENTER" spacing="22">
+        <Button fx:id="prevBtn" text="⏮ Prev" onAction="#prevSong"
+                style="-fx-background-color: #0F172A; -fx-text-fill: white; -fx-font-weight: bold;
+                -fx-font-size: 14px; -fx-background-radius: 50; -fx-border-color: #334155; -fx-border-radius: 50;
+                -fx-cursor: hand; -fx-padding: 12 24;"/>
+
+        <Button fx:id="playPauseBtn" text="⏸ Pause" onAction="#togglePlay"
+                prefWidth="140" prefHeight="52"
+                styleClass="btn-play-pause-circle"/>
+
+        <Button fx:id="stopBtn" text="⏹ Stop" onAction="#stopSong"
+                style="-fx-background-color: #EF4444; -fx-text-fill: white; -fx-font-weight: bold;
+                -fx-font-size: 14px; -fx-background-radius: 50;
+                -fx-cursor: hand; -fx-padding: 12 24;"/>
+
+        <Button fx:id="nextBtn" text="Next ⏭" onAction="#nextSong"
+                style="-fx-background-color: #0F172A; -fx-text-fill: white; -fx-font-weight: bold;
+                -fx-font-size: 14px; -fx-background-radius: 50; -fx-border-color: #334155; -fx-border-radius: 50;
+                -fx-cursor: hand; -fx-padding: 12 24;"/>
+    </HBox>
+
+    <!-- Extra Action Buttons -->
+    <HBox alignment="CENTER" spacing="16">
+        <Button fx:id="likeBtn" text=" Favorite" onAction="#toggleLike"
+                style="-fx-background-color: #EF4444; -fx-text-fill: white; -fx-font-weight: bold;
+                -fx-background-radius: 500px; -fx-cursor: hand; -fx-padding: 8 20;"/>
+
+        <Button text=" Shuffle" onAction="#toggleShuffle"
+                style="-fx-background-color: #0284C7; -fx-text-fill: white; -fx-font-weight: bold;
+                -fx-background-radius: 500px; -fx-cursor: hand; -fx-padding: 8 20;"/>
+    </HBox>
+
+    <!-- Status Message -->
+    <Label fx:id="statusLabel" text="Ready to play..."
+           style="-fx-text-fill: #0369A1; -fx-font-weight: bold; -fx-font-size: 13px;"/>
+</VBox>
